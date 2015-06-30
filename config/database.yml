@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+
+development:
+  <<: *default
+  database: sd_development
+test:
+  <<: *default
+  database: sd_test
+
