@@ -17,9 +17,8 @@ gem 'neat', "~> 1.7.2"
 gem 'pg'
 
 group :development, :test do
-  # gem 'byebug'
-  # gem 'web-console', '~> 2.0'
-  # gem 'spring'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers', '~> 2.8'
 end
 
