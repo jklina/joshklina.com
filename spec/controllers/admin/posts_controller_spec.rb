@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe Admin::PostsController, type: :controller do
 
   describe "GET #index" do
-    it "returns http success" do
+    it "finds all the posts" do
+      blog_post = create(:post)
+
       get :index
-      expect(response).to have_http_status(:success)
+
+      expect(assigns(:posts).last).to eq(blog_post)
     end
   end
 
