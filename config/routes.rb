@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'posts/index'
+  end
+
+  namespace :admin do
+  get 'posts/edit'
+  end
+
+  namespace :admin do
+  get 'posts/update'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
