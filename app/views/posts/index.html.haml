@@ -1,0 +1,5 @@
+.posts
+  - unless @posts.empty?
+    = render @posts
+  -else
+    %p= t('posts.index.no_posts_warning')

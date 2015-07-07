@@ -1,0 +1,62 @@
+header {
+  background-color: $dark-background-color;
+  border-bottom: 1px solid $border-color;
+  color: $header-text-color;
+
+  h1 {
+    font-size: modular-scale(2);
+    text-align: center;
+  }
+
+  ul {
+    padding: 0;
+    text-align: center;
+  }
+
+  ul.social {
+    margin: modular-scale(0) 0;
+
+    .twitter {
+      height: modular-scale(3);
+      width: modular-scale(3);
+    }
+
+    li {
+      list-style: none;
+      display: inline;
+    }
+
+  }
+
+  .menu {
+    margin: 2em 1em 0 0;
+
+    li {
+      padding-right: 1em;
+      list-style: none;
+      display: inline;
+      text-align: left;
+    }
+  }
+
+
+  @include media($large-screen-up) {
+    h1 {
+      float: left;
+    }
+
+    ul.social {
+      float: right;
+    }
+
+    .menu {
+      float: right;
+    }
+  }
+
+  nav {
+    @include outer-container;
+    overflow: auto;
+    @include base-padding;
+  }
+}

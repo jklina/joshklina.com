@@ -1,0 +1,12 @@
+.tags {
+
+  margin: modular-scale(1) 0;
+
+  span {
+    background-color: $dark-background-color;
+    padding: modular-scale(-4);
+    a {
+      color: $text-bold-color;
+    }
+  }
+}

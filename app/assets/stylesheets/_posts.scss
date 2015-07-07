@@ -1,0 +1,75 @@
+.posts, .post {
+  @include outer-container;
+  margin-top: 1em;
+}
+
+section.content {
+  @include span-columns(8);
+}
+
+article {
+  @include outer-container;
+  @include base-padding;
+  h3 {
+    font-size: modular-scale(2);
+    margin: modular-scale(-4) 0;
+
+    a {
+      color: $text-bold-color;
+      border-bottom: 1px dotted;
+
+      &:hover {
+        color: $main-accent-color;
+      }
+
+    }
+  }
+
+  p {
+    line-height: modular-scale(1);
+
+    a {
+      color: $main-accent-color;
+      border-bottom: 1px dotted $main-accent-color;
+      font-family: $serif-font;
+      // font-style: italic;
+    }
+
+    em {
+      font-family: $serif-font;
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+  }
+
+  time {
+    color: $text-color;
+    font-size: modular-scale(-2);
+  }
+
+
+  a.continue-reading {
+    display: inline-block;
+    padding: modular-scale(-4);
+    margin: modular-scale(2) 0;
+    border-left: 4px solid $main-accent-color;
+    color: $main-accent-color;
+    font-size: modular-scale(-1);
+    font-family: $serif-font;
+  }
+
+  header {
+    padding: modular-scale(-1);
+  }
+  code {
+    padding: modular-scale(-1);
+    display: block;
+    background-color: #212121;
+    color: $text-color;
+  }
+}
+

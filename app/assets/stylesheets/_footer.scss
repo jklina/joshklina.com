@@ -1,0 +1,9 @@
+footer {
+  .info {
+    @include outer-container;
+    @include base-padding;
+  }
+  background-color: $dark-background-color;
+  border-top: 1px solid $border-color;
+  color: $header-text-color;
+}

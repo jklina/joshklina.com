@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :post, only: [:show]
 
-  root to: 'home#index'
+  root to: 'posts#index'
 end

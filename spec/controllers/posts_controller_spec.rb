@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
-
+RSpec.describe PostsController, type: :controller do
   describe "GET #index" do
     it "finds all the posts" do
       blog_post = create(:post)
