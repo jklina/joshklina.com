@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title SensibleDefault
+    = stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin/application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.admin
+      %ul
+        %li= link_to "Posts", admin_posts_path
+        %li= link_to "Posts", admin_posts_path
+    = yield

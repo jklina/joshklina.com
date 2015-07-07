@@ -13,12 +13,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "haml-rails", "~> 0.9"
 gem 'bourbon', "~> 4.2"
 gem 'neat', "~> 1.7.2"
+gem 'bitters'
 gem 'pg'
 gem 'bcrypt', '~> 3.1'
 gem 'high_voltage', '~> 2.3.0'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'capybara'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 2.8'
   gem "factory_girl_rails", "~> 4.0"

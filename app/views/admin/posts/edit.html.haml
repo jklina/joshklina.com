@@ -1,2 +1,10 @@
-%h1 Admin::Posts#edit
-%p Find me in app/views/admin/posts/edit.html.haml
+%section.edit-post
+  %h2= "Editing Post: #{@post.title}"
+  = form_for @post, url: admin_post_path(@post), method: :patch do |f|
+    %p
+      = f.label :title
+      = f.text_field :title
+    %p
+      = f.label :body
+      = f.text_area :body
+    %p= f.submit
