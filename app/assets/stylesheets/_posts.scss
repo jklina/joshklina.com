@@ -7,6 +7,10 @@ section.content {
   @include span-columns(8);
 }
 
+section.no-posts {
+  @include base-padding;
+}
+
 article {
   @include outer-container;
   @include base-padding;
