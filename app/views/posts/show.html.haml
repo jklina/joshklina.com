@@ -2,7 +2,7 @@
   %section.content
     %h3= @post.title
     = preserve do
-      = @post.body.html_safe
+      = markdown_to_html(@post.body)
   %aside
     %section.bio
       %p Hi, I'm Josh. 

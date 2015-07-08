@@ -3,6 +3,6 @@
   .content.summary
     %h3= link_to(post.title, post)
     = preserve do
-      = post.body.html_safe
+      = markdown_to_html(post.body)
   -# %section.info
   -#   = render 'posts/tags', tags: post.tags

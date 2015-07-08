@@ -13,6 +13,7 @@ gem 'bitters'
 gem 'pg'
 gem 'bcrypt', '~> 3.1'
 gem 'high_voltage', '~> 2.3.0'
+gem 'redcarpet', '~> 3.0'
 
 group :development, :test do
   gem 'pry-rails'
