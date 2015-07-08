@@ -3,6 +3,20 @@ class Admin::PostsController < Admin::AdminController
     @posts = Post.all
   end
 
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:success] = "Post successfully created."
+      redirect_to admin_posts_path
+    else
+      render :new
+    end
+  end
+
   def edit
     find_post
   end
@@ -10,7 +24,8 @@ class Admin::PostsController < Admin::AdminController
   def update
     find_post
     if @post.update(post_params)
-      redirect_to admin_posts_path, notice: 'Post was successfully updated.'
+      flash[:success] = "Post was successfully updated."
+      redirect_to admin_posts_path
     else
       render action: 'edit'
     end

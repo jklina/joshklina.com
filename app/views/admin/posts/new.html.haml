@@ -1,6 +1,6 @@
-%section.edit-post
-  %h2= "Editing Post: #{@post.title}"
-  = form_for @post, url: admin_post_path(@post), method: :patch do |f|
+%section.new-post
+  %h2= "New Post"
+  = form_for @post, url: admin_posts_path, method: :post do |f|
     = render partial: 'error_handler', locals: { model: @post }
     %p
       = f.label :title

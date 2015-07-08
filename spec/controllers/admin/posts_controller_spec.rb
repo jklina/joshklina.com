@@ -12,6 +12,46 @@ RSpec.describe Admin::PostsController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "builds a new post" do
+      get :new
+
+      expect(assigns(:post)).to be_a_new(Post)
+    end
+  end
+
+  describe "POST #create" do
+    context "with valid attributes" do
+      it "creates a new post" do
+        valid_post_attributes = attributes_for(:post,
+                                              title: 'Title',
+                                              body: 'Body')
+
+        post :create, post: valid_post_attributes
+
+        expect(assigns(:post)).to be_persisted
+        expect(assigns(:post).title).to eq('Title')
+        expect(assigns(:post).body).to eq('Body')
+        expect(flash[:success]).to eq('Post successfully created.')
+        expect(response).to redirect_to(admin_posts_path)
+      end
+    end
+
+    context "with invalid attributes" do
+      it "re-renders the new action" do
+        invalid_post_attributes = attributes_for(:post,
+                                              title: '',
+                                              body: 'Body')
+        post :create, post: invalid_post_attributes
+
+        expect(assigns(:post)).to be_a_new(Post)
+        expect(assigns(:post).title).to eq('')
+        expect(assigns(:post).body).to eq('Body')
+        expect(response).to render_template(:new)
+      end
+    end
+  end
+
   describe "GET #edit" do
     it { finds_the_post }
   end

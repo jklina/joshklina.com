@@ -1,0 +1,46 @@
+$success: #96FFAE;
+$notice: #B1DEEC;
+$error: #ECB1B1;
+
+@mixin flash-color($color) {
+  background-color: $color;
+  color: darken($color, 60%);
+}
+
+.flashes {
+  div {
+    @include base-padding;
+  }
+}
+
+.flash-success {
+  @include flash-color($success);
+}
+
+.flash-notice {
+  @include flash-color($notice);
+}
+
+.flash-error {
+  @include flash-color($error);
+}
+
+#error-explanation {
+  @include flash-color($error);
+  @include base-padding;
+
+  li {
+    list-style: disc;
+    list-style-position: inside;
+  }
+}
+
+.field_with_errors {
+  input {
+    border-color: darken($error, 40%);
+  }
+
+  label {
+    color: darken($error, 40%);
+  }
+}
