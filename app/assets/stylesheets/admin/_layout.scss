@@ -35,3 +35,16 @@ section {
   @include outer-container(100%);
 }
 
+.admin-title-header {
+  h2 {
+    display: inline-block;
+  }
+
+  a {
+    position: relative;
+    top: -5px;
+    padding: modular-scale(-2);
+    margin-left: modular-scale(1);
+    background-color: #eee;
+  }
+}
