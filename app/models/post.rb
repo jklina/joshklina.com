@@ -3,6 +3,13 @@ class Post < ActiveRecord::Base
 
   before_save :set_published_at_date
 
+  def css_classes
+    if published?
+      return "published"
+    else
+      return "not-published"
+    end
+  end
   private
 
   def set_published_at_date

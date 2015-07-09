@@ -4,6 +4,20 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
 
+  describe "#css_classes" do
+    it "returns 'not-published' if the article is not published" do
+      post = build(:post, published: false)
+
+      expect(post.css_classes).to eq("not-published")
+    end
+
+    it "returns 'published' if the article is published" do
+      post = build(:post, published: true)
+
+      expect(post.css_classes).to eq("published")
+    end
+  end
+
   describe "#published" do
     it "is false by default" do
       post = build(:post)

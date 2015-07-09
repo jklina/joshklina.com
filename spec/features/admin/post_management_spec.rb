@@ -19,10 +19,12 @@ RSpec.feature "Post management", :type => :feature do
 
     fill_in "Title", with: "Hello World!"
     fill_in "Body", with: "1, 2, 3, 4 get your booty on the floor."
+    check "Published"
     click_on "Update Post"
 
     expect(page).to have_text("Hello World!")
     expect(page).to have_text("1, 2, 3, 4 get your booty on the floor.")
+    expect(page).to have_css(".published")
   end
 
   scenario "user can create posts " do
@@ -30,10 +32,12 @@ RSpec.feature "Post management", :type => :feature do
 
     fill_in "Title", with: "Hello World!"
     fill_in "Body", with: "1, 2, 3, 4 get your booty on the floor."
+    check "Published"
     click_on "Create Post"
 
     expect(page).to have_text("Hello World!")
     expect(page).to have_text("1, 2, 3, 4 get your booty on the floor.")
+    expect(page).to have_css(".published")
     expect(page).to have_text("Post successfully created.")
   end
 
