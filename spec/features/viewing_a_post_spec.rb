@@ -11,4 +11,11 @@ RSpec.feature "Viewing a post", :type => :feature do
     expect(page).to have_text(post.title)
     expect(page).to have_text(post.body)
   end
+
+  scenario "a visitor cannot view unpublished posts" do
+    post = create(:post, published: false)
+
+    expect { visit post_path(post) }.
+      to raise_error(ActiveRecord::RecordNotFound)
+  end
 end

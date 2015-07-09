@@ -16,12 +16,19 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET #show" do
-    it "finds the post based off the given id" do
-      blog_post = create(:post)
+    it "finds the published post based off the given id" do
+      blog_post = create(:post, published: true)
 
       get :show, id: blog_post
 
       expect(assigns(:post)).to eq(blog_post)
+    end
+
+    it "cannot find an unpublished post" do
+      blog_post = create(:post, published: false)
+
+      expect { get :show, id: blog_post }.
+        to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
