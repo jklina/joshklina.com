@@ -26,6 +26,15 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe ".published" do
+    it "returns only published posts" do
+      published_post = create(:post, published: true)
+      unpublished_post = create(:post, published: false)
+
+      expect(Post.published).to eq([published_post])
+    end
+  end
+
   describe "#published_at" do
     it "is null by default" do
       post = build(:post)

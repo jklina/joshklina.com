@@ -1,12 +1,14 @@
 require "rails_helper"
 
 RSpec.feature "Posts index page", :type => :feature do
-  scenario "a visitor can view posts" do
-    post = create(:post)
+  scenario "a visitor can view published posts" do
+    published_post = create(:post, published: true)
+    unpublished_post = create(:post, published: false)
 
     visit root_path
 
-    expect(page).to have_text(post.title)
+    expect(page).to have_text(published_post.title)
+    expect(page).to_not have_text(unpublished_post.title)
   end
 
   scenario "a visitor received a notification when there are no posts" do

@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "Viewing a post", :type => :feature do
-  scenario "a visitor can view posts" do
-    post = create(:post)
+  scenario "a visitor can view published posts" do
+    post = create(:post, published: true)
 
     visit root_path
     click_link(post.title)

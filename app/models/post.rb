@@ -10,6 +10,11 @@ class Post < ActiveRecord::Base
       return "not-published"
     end
   end
+
+  def self.published
+    where(published: true)
+  end
+
   private
 
   def set_published_at_date
