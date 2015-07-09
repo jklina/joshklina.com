@@ -7,10 +7,12 @@
       %tr
         %th Title
         %th Article
+        %th Slug
         %th Manage
     %tbody
       - @posts.each do |post|
         %tr{class: "#{post.css_classes}"}
           %td= post.title
           %td= truncate(post.body, length: 40, separator: ' ')
+          %td= post.slug
           %td= link_to "Edit", edit_admin_post_path(post)

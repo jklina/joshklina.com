@@ -34,10 +34,10 @@ class Admin::PostsController < Admin::AdminController
   private
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug!(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:id, :title, :body, :published)
+    params.require(:post).permit(:id, :title, :body, :slug, :published)
   end
 end

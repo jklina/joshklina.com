@@ -18,6 +18,10 @@ class Post < ActiveRecord::Base
     where(published: true)
   end
 
+  def to_param
+    slug
+  end
+
   private
 
   def set_published_at_date

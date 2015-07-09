@@ -82,4 +82,12 @@ RSpec.describe Post, type: :model do
       expect(post.published_at).to eq(Date.today - 1.day)
     end
   end
+
+  describe "#to_param" do
+    it "returns the slug" do
+      post = build(:post, slug: 'my-slug')
+
+      expect(post.to_param).to eq('my-slug')
+    end
+  end
 end
