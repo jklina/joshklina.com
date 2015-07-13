@@ -32,3 +32,4 @@ en:
   sessions:
     submit: 'Log in'
     failed_login: 'Invalid user/password combination.'
+    destroy: 'Log Out'

@@ -17,4 +17,11 @@ class Admin::SessionsController < Admin::AdminController
       render 'new'
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+    redirect_to root_url
+  end
 end
