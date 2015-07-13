@@ -29,3 +29,6 @@ en:
   posts:
     index:
       no_posts_warning: 'There are no posts yet. Please check back later!'
+  sessions:
+    submit: 'Log in'
+    failed_login: 'Invalid user/password combination.'

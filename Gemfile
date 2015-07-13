@@ -15,6 +15,10 @@ gem 'bcrypt', '~> 3.1'
 gem 'high_voltage', '~> 2.3.0'
 gem 'redcarpet', '~> 3.0'
 
+group :production do
+  gem 'puma', '~> 2.11'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
