@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  belongs_to :user
+
   validates_presence_of :title, :body, :slug
   validates_uniqueness_of :slug, case_sensitive: false
   validates_length_of :slug, :title, maximum: 244
