@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "Post management", :type => :feature do
+  before(:each) { create_user_and_login }
+
   scenario "user can view posts" do
     post = create(:post)
 

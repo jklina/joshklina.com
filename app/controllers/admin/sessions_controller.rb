@@ -1,4 +1,6 @@
 class Admin::SessionsController < Admin::AdminController
+  skip_before_action :authorize, only: [:new, :create]
+
   def new
   end
 

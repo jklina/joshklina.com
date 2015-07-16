@@ -30,10 +30,13 @@ RSpec.describe Admin::SessionsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "deletes the sesssion and cookies" do
+      build_user_and_login
       session['user_id'] = 1
       request.cookies['user_id'] = 1
       request.cookies['remember_token'] = 'token'
+
       delete :destroy
+
       expect(session['user_id']).to be_nil
       expect(cookies['user_id']).to be_nil
       expect(cookies['remember_token']).to be_nil

@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Admin::PostsController, type: :controller do
 
+  before(:each) { build_user_and_login }
+
   describe "GET #index" do
     it "finds all the posts" do
       blog_post = create(:post)
