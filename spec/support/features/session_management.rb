@@ -1,7 +1,7 @@
 module Features
   module SessionManagement
-    def create_user_and_login
-      user = create(:user)
+    def create_user_and_login(user_args=nil)
+      user = create(:user, user_args)
       login_as(user)
     end
 

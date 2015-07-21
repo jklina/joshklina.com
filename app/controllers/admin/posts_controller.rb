@@ -5,10 +5,12 @@ class Admin::PostsController < Admin::AdminController
 
   def new
     @post = Post.new
+    find_authors
   end
 
   def create
     @post = Post.new(post_params)
+    find_authors
     if @post.save
       flash[:success] = "Post successfully created."
       redirect_to admin_posts_path
@@ -19,10 +21,12 @@ class Admin::PostsController < Admin::AdminController
 
   def edit
     find_post
+    find_authors
   end
 
   def update
     find_post
+    find_authors
     if @post.update(post_params)
       flash[:success] = "Post was successfully updated."
       redirect_to admin_posts_path
@@ -33,11 +37,15 @@ class Admin::PostsController < Admin::AdminController
 
   private
 
+  def find_authors
+    @authors = User.all
+  end
+
   def find_post
     @post = Post.find_by_slug!(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:id, :title, :body, :slug, :published)
+    params.require(:post).permit(:id, :title, :body, :slug, :published, :author_id)
   end
 end

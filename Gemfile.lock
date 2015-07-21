@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.7)
     arel (6.0.0)
     bcrypt (3.1.10)
     bitters (1.0.0)
@@ -93,6 +94,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -204,6 +207,7 @@ DEPENDENCIES
   haml-rails (~> 0.9)
   high_voltage (~> 2.3.0)
   jquery-rails
+  launchy
   neat (~> 1.7.2)
   pg
   pry-rails

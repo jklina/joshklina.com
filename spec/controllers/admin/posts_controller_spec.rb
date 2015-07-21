@@ -20,20 +20,30 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       expect(assigns(:post)).to be_a_new(Post)
     end
+
+    it "finds all the users and sets them as authors" do
+      author = create(:user)
+      get :new
+
+      expect(assigns(:authors)).to eq([author])
+    end
   end
 
   describe "POST #create" do
     context "with valid attributes" do
       it "creates a new post" do
+        user = create(:user)
         valid_post_attributes = attributes_for(:post,
                                               title: 'Title',
-                                              body: 'Body')
+                                              body: 'Body',
+                                              author_id: user.id)
 
         post :create, post: valid_post_attributes
 
         expect(assigns(:post)).to be_persisted
         expect(assigns(:post).title).to eq('Title')
         expect(assigns(:post).body).to eq('Body')
+        expect(assigns(:post).author).to eq(user)
         expect(flash[:success]).to eq('Post successfully created.')
         expect(response).to redirect_to(admin_posts_path)
       end
@@ -52,33 +62,67 @@ RSpec.describe Admin::PostsController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
+
+    it "finds all the users and sets them as authors" do
+      author = create(:user)
+      post_attributes = attributes_for(:post)
+
+      post :create, post: post_attributes
+
+      expect(assigns(:authors)).to eq([author])
+    end
   end
 
   describe "GET #edit" do
-    it { finds_the_post }
+    it "finds the post" do
+      blog_post = create(:post)
+
+      get :edit, id: blog_post
+
+      expect(assigns(:post)).to eq(blog_post)
+    end
+
+    it "finds all the users and sets them as authors" do
+      author = create(:user)
+      post = create(:post, author: author)
+
+      get :edit, id: post
+
+      expect(assigns(:authors)).to eq([author])
+    end
   end
 
   describe "GET #update" do
-    it { finds_the_post }
+    it "finds the post" do
+      blog_post = create(:post)
+
+      patch :update, id: blog_post, post: {title: 'hello'}
+
+      expect(assigns(:post)).to eq(blog_post)
+    end
+
+    it "finds all the users and sets them as authors" do
+      author = create(:user)
+      post = create(:post, author: author)
+
+      patch :update, id: post, post: {title: 'hello'}
+
+      expect(assigns(:authors)).to eq([author])
+    end
 
     it "updates the posts attributes when given" do
+      user = create(:user)
       blog_post = create(:post)
 
       patch :update, id: blog_post, post: {title: "hello!",
-                                           body: "1,2,3,4"}
+                                           body: "1,2,3,4",
+                                           author_id: user.id}
 
       blog_post.reload
 
       expect(blog_post.title).to eq("hello!")
       expect(blog_post.body).to eq("1,2,3,4")
+      expect(blog_post.author).to eq(user)
     end
-  end
-
-  def finds_the_post
-    blog_post = create(:post)
-
-    get :edit, id: blog_post
-
-    expect(assigns(:post)).to eq(blog_post)
   end
 end

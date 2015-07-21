@@ -9,6 +9,9 @@
       = f.label :body
       = f.text_area :body
     %p
+      = f.label :author
+      = f.collection_select(:author_id, @authors, :id, :name)
+    %p
       = f.label :slug
       = f.text_field :slug
     %p
