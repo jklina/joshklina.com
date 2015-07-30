@@ -1,3 +1,7 @@
+== Sensible Default
+
+This is a very boring blogging platform based on Rails. It has very little in the way of frills and is designed to get up and running fast and instantly understandable by people who develop in Rails. 
+
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -6,6 +10,8 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+
+
 
 * System dependencies
 

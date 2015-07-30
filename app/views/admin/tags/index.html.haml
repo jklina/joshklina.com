@@ -1,0 +1,14 @@
+%section.tags
+  .admin-title-header
+    %h2 Tags
+    = link_to "Add New", new_admin_tag_path
+  %table 
+    %thead
+      %tr
+        %th Label
+        %th Manage
+    %tbody
+      - @tags.each do |tag|
+        %tr
+          %td= "#{tag.label}"
+          %td= link_to "Edit", edit_admin_tag_path(tag)
