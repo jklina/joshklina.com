@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates_presence_of :title, :body, :slug, :author
   validates_uniqueness_of :slug, case_sensitive: false
