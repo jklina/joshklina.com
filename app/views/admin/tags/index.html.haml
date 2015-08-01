@@ -11,4 +11,6 @@
       - @tags.each do |tag|
         %tr
           %td= "#{tag.label}"
-          %td= link_to "Edit", edit_admin_tag_path(tag)
+          %td
+            = link_to "Edit", edit_admin_tag_path(tag)
+            = link_to "Delete", admin_tag_path(tag), method: :delete

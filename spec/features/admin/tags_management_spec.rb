@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Tag management", :type => :feature do
   scenario "user can view tags" do
-    user = create_user_and_login
+    create_user_and_login
     tag = create(:tag)
 
     visit admin_tags_path
@@ -10,33 +10,43 @@ RSpec.feature "Tag management", :type => :feature do
     expect(page).to have_text(tag.label)
   end
 
-#   scenario "user can edit tags " do
-#     user = create_user_and_login(name: 'Andrew')
-#     author = create(:user, name: 'Josh')
-#     tag = create(:tag)
-#
-#     visit edit_admin_tag_path(tag)
-#
-#     expect(page).to have_text(tag.title)
-#     expect(page).to have_text(tag.body)
-#
-#     fill_in "Title", with: "Hello World!"
-#     fill_in "Body", with: "1, 2, 3, 4 get your booty on the floor."
-#     fill_in "Slug", with: "my slug"
-#     select "Josh", from: "tag[author_id]"
-#     check "Published"
-#     click_on "Update Post"
-#
-#     expect(page).to have_text("Hello World!")
-#     expect(page).to have_text("1, 2, 3, 4 get your booty on the floor.")
-#     expect(page).to have_text("my-slug")
-#     expect(page).to have_text("Josh")
-#     expect(page).to have_css(".published")
-#   end
-#
-#   scenario "user can create tags " do
-#     user = create_user_and_login(name: 'Andrew')
-#     author = create(:user, name: 'Josh')
-#   end
+  scenario "user can create tags " do
+    create_user_and_login
+
+    visit new_admin_tag_path
+
+    fill_in "Label", with: "my tag"
+    click_on "Create Tag"
+
+    expect(current_path).to eq(admin_tags_path)
+    expect(page).to have_content("my tag")
+  end
+
+  scenario "user can edit tags " do
+    create_user_and_login
+    tag = create(:tag, label: 'Old Label')
+
+    visit edit_admin_tag_path(tag)
+
+    fill_in "Label", with: "New Label"
+    click_on "Update Tag"
+
+    expect(current_path).to eq(admin_tags_path)
+    expect(page).to have_text("New Label")
+  end
+
+  scenario "user can delete tags " do
+    create_user_and_login
+    tag = create(:tag, label: 'My Label')
+
+    visit admin_tags_path
+
+    expect(page).to have_text("My Label")
+
+    click_on "Delete"
+
+    expect(current_path).to eq(admin_tags_path)
+    expect(page).to_not have_text("My Label")
+  end
 end
 
