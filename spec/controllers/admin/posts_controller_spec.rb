@@ -27,6 +27,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       expect(assigns(:authors)).to eq([author])
     end
+
+    it { finds_tags_for { get :new } }
   end
 
   describe "POST #create" do
@@ -71,6 +73,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       expect(assigns(:authors)).to eq([author])
     end
+
+    it { finds_tags_for { post :create, post: attributes_for(:post) } }
   end
 
   describe "GET #edit" do
@@ -90,6 +94,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       expect(assigns(:authors)).to eq([author])
     end
+
+    it { finds_tags_for { get :edit, id: create(:post) } }
   end
 
   describe "GET #update" do
@@ -124,5 +130,21 @@ RSpec.describe Admin::PostsController, type: :controller do
       expect(blog_post.body).to eq("1,2,3,4")
       expect(blog_post.author).to eq(user)
     end
+
+    it do
+      finds_tags_for do
+        blog_post = create(:post)
+        patch :update, id: blog_post, post: {title: 'hello'}
+      end
+    end
+  end
+
+  def finds_tags_for
+    tag = create(:tag)
+    post_attributes = attributes_for(:post)
+
+    yield
+
+    expect(assigns(:tags)).to eq([tag])
   end
 end
