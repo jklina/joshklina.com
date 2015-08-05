@@ -11,9 +11,11 @@
       %ul
         %li= link_to "Posts", admin_posts_path
         %li= link_to "Tags", admin_tags_path
-        - if logged_in?
+      - if logged_in?
+        %ul.login
           %li= link_to current_user.name, admin_posts_path
-          %li= link_to t('sessions.destroy'), admin_logout_path, method: :delete
+          %li= link_to t('sessions.destroy'),
+            admin_logout_path, method: :delete
     - if flash.any?
       .flashes
         - user_facing_flashes.each do |key, value|
