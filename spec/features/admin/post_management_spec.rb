@@ -14,6 +14,7 @@ RSpec.feature "Post management", :type => :feature do
     user = create_user_and_login(name: 'Andrew')
     author = create(:user, name: 'Josh')
     post = create(:post)
+    tag = create(:tag, label: 'coffee')
 
     visit edit_admin_post_path(post)
 
@@ -23,6 +24,7 @@ RSpec.feature "Post management", :type => :feature do
     fill_in "Title", with: "Hello World!"
     fill_in "Body", with: "1, 2, 3, 4 get your booty on the floor."
     fill_in "Slug", with: "my slug"
+    check "coffee"
     select "Josh", from: "post[author_id]"
     check "Published"
     click_on "Update Post"
@@ -31,18 +33,22 @@ RSpec.feature "Post management", :type => :feature do
     expect(page).to have_text("1, 2, 3, 4 get your booty on the floor.")
     expect(page).to have_text("my-slug")
     expect(page).to have_text("Josh")
+    expect(page).to have_text("Josh")
+    expect(page).to have_text("coffee")
     expect(page).to have_css(".published")
   end
 
   scenario "user can create posts " do
     user = create_user_and_login(name: 'Andrew')
     author = create(:user, name: 'Josh')
-    visit new_admin_post_path
+    tag = create(:tag, label: 'coffee')
 
+    visit new_admin_post_path
     fill_in "Title", with: "Hello World!"
     fill_in "Body", with: "1, 2, 3, 4 get your booty on the floor."
     fill_in "Slug", with: "my slug"
     select "Josh", from: "post[author_id]"
+    check "coffee"
     check "Published"
     click_on "Create Post"
 
@@ -51,6 +57,7 @@ RSpec.feature "Post management", :type => :feature do
     expect(page).to have_text("my-slug")
     expect(page).to have_css(".published")
     expect(page).to have_text("Josh")
+    expect(page).to have_text("coffee")
     expect(page).to have_text("Post successfully created.")
   end
 

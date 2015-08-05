@@ -2,19 +2,4 @@
   %h2= "Editing Post: #{@post.title}"
   = form_for @post, url: admin_post_path(@post), method: :patch do |f|
     = render partial: 'error_handler', locals: { model: @post }
-    %p
-      = f.label :title
-      = f.text_field :title
-    %p
-      = f.label :body
-      = f.text_area :body
-    %p
-      = f.label :author
-      = f.collection_select(:author_id, @authors, :id, :name)
-    %p
-      = f.label :slug
-      = f.text_field :slug
-    %p
-      = f.label :published
-      = f.check_box :published
-    %p= f.submit
+    = render partial: 'form_fields', locals: { form: f }

@@ -9,6 +9,7 @@
         %th Article
         %th Author
         %th Slug
+        %th Tags
         %th Manage
     %tbody
       - @posts.each do |post|
@@ -17,4 +18,5 @@
           %td= "#{post.author.name}"
           %td= truncate(post.body, length: 40, separator: ' ')
           %td= "#{post.slug}"
+          %td= "#{post.tags.to_sentence}"
           %td= link_to "Edit", edit_admin_post_path(post)
