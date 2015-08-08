@@ -1,0 +1,6 @@
+.tags
+  - if tags.any?
+    - tags.each do |tag|
+      %span= link_to tag.label, '#'
+  - else
+    %span.empty Not tagged

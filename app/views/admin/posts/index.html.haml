@@ -15,8 +15,8 @@
       - @posts.each do |post|
         %tr{class: "#{post.css_classes}"}
           %td= "#{post.title}"
-          %td= "#{post.author.name}"
           %td= truncate(post.body, length: 40, separator: ' ')
+          %td= "#{post.author.name}"
           %td= "#{post.slug}"
           %td= "#{post.tags.to_sentence}"
           %td= link_to "Edit", edit_admin_post_path(post)
