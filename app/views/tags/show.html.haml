@@ -1,0 +1,6 @@
+.posts
+  - unless @posts.empty?
+    = render @posts
+  -else
+    %section.no-posts
+      %p= t('posts.index.no_posts_warning')

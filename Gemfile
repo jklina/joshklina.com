@@ -14,7 +14,7 @@ gem 'pg'
 gem 'bcrypt', '~> 3.1'
 gem 'high_voltage', '~> 2.3.0'
 gem 'redcarpet', '~> 3.0'
-gem 'rouge', '~> 1.9.1'
+gem 'rouge', '~> 1.8.0'
 gem 'kaminari', '~> 0.16'
 
 group :production do

@@ -22,6 +22,10 @@ class Post < ActiveRecord::Base
     where(published: true)
   end
 
+  def self.sorted_by_published_date
+    order(published_at: :desc)
+  end
+
   def to_param
     slug
   end

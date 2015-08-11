@@ -50,6 +50,21 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe ".sorted_by_published_date" do
+    it "finds all the published posts ordered by date with the tag" do
+      tagged_older_post = create(:post, published: true)
+      tagged_newer_post = create(:post, published: true)
+
+      tagged_older_post.published_at = Date.today - 2.days
+      tagged_newer_post.published_at = Date.today
+      tagged_older_post.save!
+      tagged_newer_post.save!
+
+      expect(Post.sorted_by_published_date).
+        to eq([tagged_newer_post, tagged_older_post])
+    end
+  end
+
   describe ".published" do
     it "returns only published posts" do
       published_post = create(:post, published: true)

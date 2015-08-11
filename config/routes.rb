@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/show'
+
   namespace :admin do
     resources :posts
     resources :tags
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:show]
+  resources :tags, only: [:show]
 
   root to: 'posts#index'
 end
