@@ -44,7 +44,7 @@ class Admin::TagsController < Admin::AdminController
   private
 
   def find_tag
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_slug!(params[:id])
   end
 
   def tag_params
