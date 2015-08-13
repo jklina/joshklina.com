@@ -26,6 +26,15 @@ RSpec.describe TagsController, type: :controller do
 
       expect(assigns(:posts)).to eq([tagged_newer_post, tagged_older_post])
     end
+
+    it "paginates the results in chunks of 10" do
+      tag = create(:tag)
+      posts = FactoryGirl.create_list(:post, 11, published: true, tags: [tag])
+
+      get :show, id: tag
+
+      expect(assigns(:posts).count).to eq(10)
+    end
   end
 
 end

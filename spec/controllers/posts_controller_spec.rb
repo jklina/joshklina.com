@@ -13,6 +13,14 @@ RSpec.describe PostsController, type: :controller do
 
       expect(assigns(:posts)).to eq([new_blog_post, old_blog_post])
     end
+
+    it "paginates the results in chunks of 10" do
+      posts = FactoryGirl.create_list(:post, 11, published: true)
+
+      get :index
+
+      expect(assigns(:posts).count).to eq(10)
+    end
   end
 
   describe "GET #show" do
