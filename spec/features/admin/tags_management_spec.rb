@@ -10,6 +10,13 @@ RSpec.feature "Tag management", :type => :feature do
     expect(page).to have_text(tag.label)
   end
 
+  it do
+    create_user_and_login
+    paginates(model: Tag, increment: 25, selector: '.tag') do
+      visit admin_tags_path
+    end
+  end
+
   scenario "user can create tags " do
     create_user_and_login
 

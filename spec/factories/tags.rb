@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :tag do
-    label { Faker::Commerce.color }
+    sequence(:label) { |n| "label#{n}" }
   end
 
 end

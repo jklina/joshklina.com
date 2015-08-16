@@ -12,6 +12,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       expect(assigns(:posts).last).to eq(blog_post)
     end
+
+    it { paginates(model: Post, increment: 25) { get :index } }
   end
 
   describe "GET #new" do

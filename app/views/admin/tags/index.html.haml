@@ -9,8 +9,10 @@
         %th Manage
     %tbody
       - @tags.each do |tag|
-        %tr
+        %tr.tag
           %td= "#{tag.label}"
           %td
             = link_to "Edit", edit_admin_tag_path(tag)
             = link_to "Delete", admin_tag_path(tag), method: :delete
+
+  = paginate @tags

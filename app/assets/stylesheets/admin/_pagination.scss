@@ -1,0 +1,12 @@
+nav.pagination {
+  margin: modular-scale(1) 0;
+
+  span {
+    padding: modular-scale(-4) modular-scale(-3);
+    margin-right: modular-scale(-4);
+    text-align: center;
+    border: $base-border;
+    display: inline-block;
+  }
+}
+

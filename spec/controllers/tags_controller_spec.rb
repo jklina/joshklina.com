@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TagsController, type: :controller do
-
   describe "GET #show" do
     it "finds the given tag" do
       tag = create(:tag)
@@ -36,5 +35,4 @@ RSpec.describe TagsController, type: :controller do
       expect(assigns(:posts).count).to eq(10)
     end
   end
-
 end

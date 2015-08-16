@@ -16,4 +16,13 @@ RSpec.feature "Posts index page", :type => :feature do
 
     expect(page).to have_text(I18n.t("posts.index.no_posts_warning"))
   end
+
+  it do
+    paginates(model: Post,
+              increment: 10,
+              selector: 'article',
+              model_attributes:{published: true}) do
+      visit root_path
+    end
+  end
 end

@@ -11,6 +11,8 @@ RSpec.describe Admin::TagsController, type: :controller do
 
       expect(assigns(:tags)).to eq([tag])
     end
+
+    it { paginates(model: Tag, increment: 25) { get :index } }
   end
 
   describe "GET #new" do

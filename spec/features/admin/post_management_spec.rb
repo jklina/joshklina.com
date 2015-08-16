@@ -10,6 +10,24 @@ RSpec.feature "Post management", :type => :feature do
     expect(page).to have_text(post.title)
   end
 
+  it do
+    create_user_and_login
+    paginates(model: Post, increment: 25, selector: '.post') do
+      visit admin_posts_path
+    end
+  end
+
+  scenario "user can paginate through the posts" do
+    create_user_and_login
+    posts = FactoryGirl.create_list(:post, 26)
+
+    visit admin_posts_path
+    expect(page).to have_selector('.post', count: 25)
+    click_on('Next')
+
+    expect(page).to have_selector('.post', count: 1)
+  end
+
   scenario "user can edit posts " do
     user = create_user_and_login(name: 'Andrew')
     author = create(:user, name: 'Josh')

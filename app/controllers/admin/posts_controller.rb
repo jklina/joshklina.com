@@ -1,6 +1,8 @@
 class Admin::PostsController < Admin::AdminController
   def index
-    @posts = Post.all
+    @posts = Post.sorted_by_published_date.
+      page(params[:page]).
+      per(25)
   end
 
   def new
