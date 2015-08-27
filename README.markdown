@@ -1,6 +1,6 @@
  === Exposition
 
-This is a very boring blogging platform based on Rails geared toward Rails developers. It has very little in the way of frills and is designed to get up and running fast with an easy to understand codebase. 
+This is a very boring blogging platform based on Rails geared toward Rails developers. It has very little in the way of frills and is designed to get up and running fast with an easy to understand codebase.
 
 This is not designed as a dependency, but more as a starting kit. Once you're up and running you can add what you like and treat it as you like.
 
