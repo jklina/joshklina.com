@@ -18,7 +18,9 @@ This application is currently tested on Ruby 2.2.2 and the PostgreSQL database.
 == Configuration
 Configuration is the same as your standard Rails App. Some steps you'll need to take:
 
-* Clone the repository
+* Fork the repository
+
+* Clone your forked repository
 
 * Install the dependencies: `bundle install`
 

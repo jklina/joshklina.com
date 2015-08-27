@@ -16,6 +16,7 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'redcarpet', '~> 3.0'
 gem 'rouge', '~> 1.8.0'
 gem 'kaminari', '~> 0.16'
+gem 'uglifier'
 
 group :production do
   gem 'puma', '~> 2.11'
