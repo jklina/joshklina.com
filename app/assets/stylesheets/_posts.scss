@@ -3,10 +3,6 @@
   margin-top: 1em;
 }
 
-section.content {
-  @include span-columns(8);
-}
-
 section.no-posts {
   @include base-padding;
 }

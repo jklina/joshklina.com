@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  title: 'Your Title'
+  owner: 'Your Name'
   date:
     formats:
       default: "%m/%d/%Y"

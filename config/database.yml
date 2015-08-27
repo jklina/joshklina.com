@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: sd_development
+  database: exposition_development
 test:
   <<: *default
-  database: sd_test
+  database: exposition_test
 

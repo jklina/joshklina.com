@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
+ruby "2.2.2"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem "haml-rails", "~> 0.9"
 gem 'bourbon', "~> 4.2"
 gem 'neat', "~> 1.7.2"
