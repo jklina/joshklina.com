@@ -56,7 +56,7 @@ Deployment instructions
 
 You can deploy the app however you like, but I like Heroku. Especially their [hobby plan](https://www.heroku.com/pricing "Heroku Pricing"). To deploy on Heroku:
 
-* `heroku create [your app name]
+* `heroku create [your app name]`
 * `git push heroku master`
 * `heroku run rake db:setup`
 * Create your admin user in the console.
