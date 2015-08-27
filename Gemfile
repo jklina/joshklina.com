@@ -23,6 +23,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "bundler-audit", require: false
   gem 'pry-rails'
   gem 'capybara'
   gem 'rspec-rails', '~> 3.0'
