@@ -49,5 +49,7 @@ As mentioned earlier this is meant more as a starting point then as a library, t
 * Deployment instructions
 You can deploy the app however you like, but I like Heroku. Especially their [hobby plan](https://www.heroku.com/pricing "Heroku Pricing"). To deploy on Heroku:
 
-
-
+* `heroku create [your app name]
+* `git push heroku master`
+* `heroku run rake db:setup`
+* `heroku open`
