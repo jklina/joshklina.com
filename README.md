@@ -54,7 +54,7 @@ You can add static pages by using the high_voltage. Instructions can be found at
 Deployment instructions
 -----------------------
 
-You can deploy the app however you like, but I like Heroku. Especially their [hobby plan](https://www.heroku.com/pricing "Heroku Pricing"). To deploy on Heroku:
+You can deploy the app however you like, but I like [Heroku](http://heroku.com "Heroku"). Especially their [hobby plan](https://www.heroku.com/pricing "Heroku Pricing"). To deploy on Heroku:
 
 * `heroku create [your app name]`
 * `git push heroku master`
