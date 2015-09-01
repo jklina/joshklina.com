@@ -20,8 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  title: 'Your Title'
-  owner: 'Your Name'
+  title: 'joshklina.com'
+  owner: 'Josh Klina'
   date:
     formats:
       default: "%m/%d/%Y"
