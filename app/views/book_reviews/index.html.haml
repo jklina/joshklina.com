@@ -1,0 +1,8 @@
+.book-reviews
+  - unless @book_reviews.empty?
+    = render @book_reviews
+  -else
+    %section.no-posts
+      %p= t('book_reviews.index.no_reviews_warning')
+
+  = paginate @book_reviews

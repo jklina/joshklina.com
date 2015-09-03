@@ -31,6 +31,9 @@ en:
   posts:
     index:
       no_posts_warning: 'There are no posts yet. Please check back later!'
+  book_reviews:
+    index:
+      no_reviews_warning: 'There are no book reviews yet. Please check back later!'
   sessions:
     submit: 'Log in'
     failed_login: 'Invalid user/password combination.'

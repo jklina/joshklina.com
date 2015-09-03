@@ -8,6 +8,7 @@ RSpec.describe BookReview, type: :model do
   it { should validate_length_of(:author).is_at_most(244) }
 
   it_behaves_like "a sluggable"
+  it_behaves_like "a publishable"
 
   describe "#slug" do
     it "is created automatically from the title if not provided" do

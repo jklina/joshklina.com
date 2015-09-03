@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :book_review do
-    title "My Book"
+    sequence(:title) { |n| "Title#{n}" }
     url "http://my-book"
     image_url "http://images.com/image.jpg"
     review "My review."
