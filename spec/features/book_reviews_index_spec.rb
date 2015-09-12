@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Book reviews index page", :type => :feature do
   scenario "a visitor can view a book review" do
-    book_review = create(:book_review, title: 'Book Review')
+    book_review = create(:book_review, book_title: 'Book Review')
 
     visit book_reviews_path
 

@@ -1,8 +1,11 @@
 class BookReview < ActiveRecord::Base
+  include Authorable
   include Sluggable
   include Publishable
-  validates_presence_of :title, :review, :author
-  validates_length_of :title, :author, maximum: 244
+  include Taggable
 
-  sluggify :slug, generated_from: :title
+  validates_presence_of :book_title, :body, :book_author
+  validates_length_of :book_title, :book_author, maximum: 244
+
+  sluggify :slug, generated_from: :book_title
 end

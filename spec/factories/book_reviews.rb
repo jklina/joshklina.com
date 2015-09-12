@@ -1,9 +1,10 @@
 FactoryGirl.define do
   factory :book_review do
-    sequence(:title) { |n| "Title#{n}" }
+    sequence(:book_title) { |n| "Title#{n}" }
     url "http://my-book"
     image_url "http://images.com/image.jpg"
-    review "My review."
-    author "Arthur"
+    body "My review."
+    book_author "Arthur"
+    association :author, factory: :user
   end
 end

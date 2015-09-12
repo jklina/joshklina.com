@@ -1,0 +1,29 @@
+%p
+  = form.label :book_title
+  = form.text_field :book_title
+%p
+  = form.label :book_author
+  = form.text_field :book_author
+%p
+  = form.label :url
+  = form.text_field :url
+%p
+  = form.label :image_url
+  = form.text_field :image_url
+%p
+  = form.label :body
+  = form.text_area :body
+%p
+  = form.label :author
+  = form.collection_select(:author_id, @authors, :id, :name)
+%p
+  = form.label :slug
+  = form.text_field :slug
+%p
+  = form.label :tag_ids, 'Tags'
+  = form.collection_check_boxes(:tag_ids, @tags, :id, :label) do |b|
+    = b.label { b.check_box + b.text }
+%p
+  = form.label :published
+  = form.check_box :published
+%p= form.submit

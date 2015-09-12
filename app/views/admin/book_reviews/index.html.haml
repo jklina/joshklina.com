@@ -1,0 +1,23 @@
+%section.posts
+  .admin-title-header
+    %h2 Book Reviews
+    = link_to "Add New", new_admin_book_review_path
+  %table 
+    %thead
+      %tr
+        %th Title
+        %th Article
+        %th Author
+        %th Slug
+        %th Tags
+        %th Manage
+    %tbody
+      - @book_reviews.each do |book_review|
+        %tr.book_review{class: "#{book_review.css_classes}"}
+          %td= "#{book_review.book_title}"
+          %td= truncate(book_review.body, length: 40, separator: ' ')
+          %td= "#{book_review.author.name}"
+          %td= "#{book_review.slug}"
+          %td= "#{book_review.tags.to_sentence}"
+          %td= link_to "Edit", edit_admin_book_review_path(book_review)
+  = paginate @book_reviews

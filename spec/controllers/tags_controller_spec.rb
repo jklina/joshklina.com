@@ -23,7 +23,7 @@ RSpec.describe TagsController, type: :controller do
       tagged_newer_post.save!
       get :show, id: tag
 
-      expect(assigns(:posts)).to eq([tagged_newer_post, tagged_older_post])
+      expect(assigns(:taggables)).to eq([tagged_newer_post, tagged_older_post])
     end
 
     it "paginates the results in chunks of 10" do
@@ -32,7 +32,7 @@ RSpec.describe TagsController, type: :controller do
 
       get :show, id: tag
 
-      expect(assigns(:posts).count).to eq(10)
+      expect(assigns(:taggables).count).to eq(10)
     end
   end
 end

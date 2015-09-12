@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903194442) do
+ActiveRecord::Schema.define(version: 20150908202320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "book_reviews", force: :cascade do |t|
-    t.string   "title"
+    t.string   "book_title"
     t.string   "url"
     t.string   "image_url"
-    t.text     "review"
+    t.text     "body"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.string   "author"
+    t.string   "book_author"
     t.string   "slug"
     t.date     "published_at"
     t.boolean  "published",    default: false, null: false
+    t.integer  "author_id"
   end
 
   add_index "book_reviews", ["slug"], name: "index_book_reviews_on_slug", unique: true, using: :btree
@@ -45,11 +46,12 @@ ActiveRecord::Schema.define(version: 20150903194442) do
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "taggable_id"
+    t.string  "taggable_type"
+    t.integer "tag_id"
   end
+
+  add_index "taggings", ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "label"

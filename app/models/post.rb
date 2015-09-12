@@ -1,11 +1,10 @@
 class Post < ActiveRecord::Base
-  include Sluggable
+  include Authorable
   include Publishable
-  belongs_to :author, class_name: 'User'
-  has_many :taggings
-  has_many :tags, through: :taggings
+  include Sluggable
+  include Taggable
 
-  validates_presence_of :title, :body, :author
+  validates_presence_of :title, :body
   validates_length_of :title, maximum: 244
 
   sluggify :slug, generated_from: :title
