@@ -5,4 +5,4 @@
     = preserve do
       = markdown_to_html(post.body)
   %section.info
-    = render 'posts/tags', tags: post.tags
+    = render 'shared/tags', tags: post.tags

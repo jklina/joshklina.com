@@ -2,5 +2,5 @@
   - unless @taggables.empty?
     = render @taggables
   -else
-    %section.no-posts
-      %p= t('posts.index.no_posts_warning')
+    %section.no-taggables
+      %p= t('taggables.show.no_taggables_warning')

@@ -57,6 +57,6 @@ class Admin::BookReviewsController < Admin::AdminController
   end
 
   def book_review_params
-    params.require(:book_review).permit(:id, :book_title, :body, :slug, :published, :book_author, :author_id, tag_ids: [])
+    params.require(:book_review).permit(:id, :book_title, :body, :slug, :published, :book_author, :image_url, :url, :author_id, tag_ids: [])
   end
 end
