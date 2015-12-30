@@ -12,7 +12,7 @@ RSpec.feature "Tag management", :type => :feature do
 
   it do
     create_user_and_login
-    paginates(model: Tag, increment: 25, selector: '.tag') do
+    paginates(factory: :tag, increment: 25, selector: '.tag') do
       visit admin_tags_path
     end
   end

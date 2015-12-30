@@ -53,7 +53,7 @@ class Admin::BookReviewsController < Admin::AdminController
   end
 
   def find_tags
-    @tags = Tag.all
+    @tags = Categorical::Tag.all
   end
 
   def book_review_params

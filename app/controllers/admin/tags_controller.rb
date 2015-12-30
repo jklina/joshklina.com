@@ -1,14 +1,14 @@
 class Admin::TagsController < Admin::AdminController
   def index
-    @tags = Tag.page(params[:page]).per(25)
+    @tags = Categorical::Tag.page(params[:page]).per(25)
   end
 
   def new
-    @tag = Tag.new
+    @tag = Categorical::Tag.new
   end
   
   def create
-    @tag = Tag.new(tag_params)
+    @tag = Categorical::Tag.new(tag_params)
     if @tag.save
       flash[:success] = "Tag successfully created."
       redirect_to admin_tags_path
@@ -44,7 +44,7 @@ class Admin::TagsController < Admin::AdminController
   private
 
   def find_tag
-    @tag = Tag.find_by_slug!(params[:id])
+    @tag = Categorical::Tag.find_by_slug!(params[:id])
   end
 
   def tag_params

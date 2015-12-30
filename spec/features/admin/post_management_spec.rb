@@ -12,7 +12,7 @@ RSpec.feature "Post management", :type => :feature do
 
   it do
     create_user_and_login
-    paginates(model: Post, increment: 25, selector: '.post') do
+    paginates(factory: :post, increment: 25, selector: '.post') do
       visit admin_posts_path
     end
   end

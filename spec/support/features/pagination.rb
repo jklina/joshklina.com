@@ -1,14 +1,15 @@
 module Features
   module Pagination
-    def paginates(model:, increment:, selector:, model_attributes:{})
-      model_symbol = model.name.underscore.to_sym
-      model_string = model.name.underscore
+    def paginates(factory:, increment:, selector:, attributes:{})
+      factory_string = factory.to_s
+      factory = factory_string.underscore.to_sym
+      factory_plural = factory_string.pluralize.underscore.to_sym
       number_of_results_for_two_pages = increment + 1
       results = 
         FactoryGirl.
-        create_list(model_symbol,
+        create_list(factory,
                     number_of_results_for_two_pages,
-                    model_attributes)
+                    attributes)
 
       yield
       expect(page).to have_selector(selector, count: increment)

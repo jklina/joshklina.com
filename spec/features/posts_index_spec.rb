@@ -18,10 +18,10 @@ RSpec.feature "Posts index page", :type => :feature do
   end
 
   it do
-    paginates(model: Post,
+    paginates(factory: :post,
               increment: 10,
               selector: 'article',
-              model_attributes:{published: true}) do
+              attributes:{published: true}) do
       visit root_path
     end
   end

@@ -17,6 +17,8 @@ gem 'redcarpet', '~> 3.0'
 gem 'rouge', '~> 1.8.0'
 gem 'kaminari', '~> 0.16'
 gem 'uglifier'
+gem 'categorical'
+gem 'human_urls'
 
 group :production do
   gem 'puma', '~> 2.11'

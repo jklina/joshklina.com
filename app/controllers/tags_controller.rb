@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def show
-    @tag = Tag.find_by_slug!(params[:id])
+    @tag = Categorical::Tag.find_by_slug!(params[:id])
     @taggables = @tag.
       send(fetch_taggable_type).
       published.

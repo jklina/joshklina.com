@@ -12,14 +12,21 @@ RSpec.describe Admin::TagsController, type: :controller do
       expect(assigns(:tags)).to eq([tag])
     end
 
-    it { paginates(model: Tag, increment: 25) { get :index } }
+    it "paginates correctly" do
+      results = FactoryGirl.create_list(:tag, 26)
+
+      get :index
+
+      expect(assigns(:tags).count).to eq(25)
+
+    end
   end
 
   describe "GET #new" do
     it "builds a new tag" do
       get :new
 
-      expect(assigns(:tag)).to be_a_new(Tag)
+      expect(assigns(:tag)).to be_a_new(Categorical::Tag)
     end
   end
 
@@ -43,7 +50,7 @@ RSpec.describe Admin::TagsController, type: :controller do
         invalid_tag_attributes = attributes_for(:tag, label: '')
         post :create, tag: invalid_tag_attributes
 
-        expect(assigns(:tag)).to be_a_new(Tag)
+        expect(assigns(:tag)).to be_a_new(Categorical::Tag)
         expect(assigns(:tag).label).to eq('')
         expect(response).to render_template(:new)
       end
@@ -98,7 +105,7 @@ RSpec.describe Admin::TagsController, type: :controller do
       delete :destroy, id: tag
 
       expect(response).to redirect_to(admin_tags_path)
-      expect(Tag.all).to eq([])
+      expect(Categorical::Tag.all).to eq([])
     end
   end
 end

@@ -16,10 +16,10 @@ RSpec.feature "Book reviews index page", :type => :feature do
   end
 
   it do
-    paginates(model: BookReview,
+    paginates(factory: :book_review,
               increment: 10,
               selector: 'article',
-              model_attributes:{published: true}) do
+              attributes:{published: true}) do
       visit book_reviews_path
     end
   end

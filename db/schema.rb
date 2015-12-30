@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908202320) do
+ActiveRecord::Schema.define(version: 20151230034653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,23 @@ ActiveRecord::Schema.define(version: 20150908202320) do
 
   add_index "book_reviews", ["slug"], name: "index_book_reviews_on_slug", unique: true, using: :btree
 
+  create_table "categorical_taggings", force: :cascade do |t|
+    t.integer "taggable_id"
+    t.string  "taggable_type"
+    t.integer "tag_id"
+  end
+
+  add_index "categorical_taggings", ["taggable_type", "taggable_id"], name: "index_categorical_taggings_on_taggable_type_and_taggable_id", using: :btree
+
+  create_table "categorical_tags", force: :cascade do |t|
+    t.string   "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  add_index "categorical_tags", ["slug"], name: "index_categorical_tags_on_slug", unique: true, using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -44,24 +61,6 @@ ActiveRecord::Schema.define(version: 20150908202320) do
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer "taggable_id"
-    t.string  "taggable_type"
-    t.integer "tag_id"
-  end
-
-  add_index "taggings", ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "label"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "slug"
-  end
-
-  add_index "tags", ["label"], name: "index_tags_on_label", unique: true, using: :btree
-  add_index "tags", ["slug"], name: "index_tags_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

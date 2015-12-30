@@ -52,7 +52,7 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def find_tags
-    @tags = Tag.all
+    @tags = Categorical::Tag.all
   end
 
   def post_params

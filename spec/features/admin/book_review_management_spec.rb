@@ -15,10 +15,10 @@ RSpec.feature "Book review management", :type => :feature do
 
   it do
     create_user_and_login
-    paginates(model: BookReview,
+    paginates(factory: :book_review,
               increment: 25,
               selector: '.book_review',
-              model_attributes:{published: true}) do
+              attributes:{published: true}) do
       visit admin_book_reviews_path
     end
   end

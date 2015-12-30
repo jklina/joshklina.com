@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
   include Authorable
   include Publishable
-  include Sluggable
-  include Taggable
+  include HumanUrls::Sluggable
+  include Categorical::Taggable
 
   validates_presence_of :title, :body
   validates_length_of :title, maximum: 244
