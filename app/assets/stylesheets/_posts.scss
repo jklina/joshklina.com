@@ -65,11 +65,21 @@ article {
   header {
     padding: modular-scale(-1);
   }
+
   code {
-    padding: modular-scale(-1);
-    display: block;
+    padding: modular-scale(-5);
+    display: inline;
     background-color: #212121;
     color: $text-color;
+  }
+
+  pre {
+    code {
+      padding: modular-scale(-1);
+      display: block;
+      background-color: #212121;
+      color: $text-color;
+    }
   }
 }
 
