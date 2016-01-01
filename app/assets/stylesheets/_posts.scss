@@ -73,7 +73,8 @@ article {
     color: $text-color;
   }
 
-  pre {
+  pre.highlight {
+    background-color: #212121;
     code {
       padding: modular-scale(-1);
       display: block;
