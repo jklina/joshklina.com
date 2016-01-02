@@ -1,18 +1,24 @@
 .book-review {
   @include outer-container;
 
-  h2 {
-    background: none;
-    border: none;
-  }
-
   figure {
-    @include span-columns(2);
-    margin: modular-scale(1) 0 0 0;
+    margin-left: 0;
   }
 
-  section.review {
-    @include span-columns(10);
+  @include media($large-screen-up) {
+    h2 {
+      background: none;
+      border: none;
+    }
+
+    figure {
+      @include span-columns(2);
+      margin: modular-scale(1) 0 0 0;
+    }
+
+    section.review {
+      @include span-columns(10);
+    }
   }
 }
 
