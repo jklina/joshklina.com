@@ -25,6 +25,16 @@ article {
     }
   }
 
+  li {
+    a {
+      color: $main-accent-color;
+      border-bottom: 1px dotted $main-accent-color;
+      font-family: $serif-font;
+      // font-style: italic;
+    }
+  }
+
+
   p {
     line-height: modular-scale(1);
 
