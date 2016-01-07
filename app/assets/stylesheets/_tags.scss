@@ -3,6 +3,7 @@
 
   span {
     background-color: $dark-background-color;
+    margin-right: modular-scale(-5);
     padding: modular-scale(-4);
     a {
       color: $text-bold-color;
