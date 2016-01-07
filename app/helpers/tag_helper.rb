@@ -18,7 +18,7 @@ module TagHelper
 
     if tags.any?
       tags.each do |tag|
-        rendered_tags << content_tag(:span, class: 'tags') do
+        rendered_tags << content_tag(:span) do
           draw_tag_url(tag: tag, taggable_type: taggable_type)
         end
       end
