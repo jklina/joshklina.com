@@ -65,7 +65,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
-    exposition (0.0.4.pre.alpha)
+    exposition (0.0.5.pre.alpha)
       bcrypt (~> 3.1)
       bitters
       bourbon (~> 4.2)
