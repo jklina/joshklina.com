@@ -1,4 +1,4 @@
-class Admin::BookReviewsController < Admin::AdminController
+class Admin::BookReviewsController < Exposition::Admin::AdminController
   def index
     @book_reviews = BookReview.sorted_by_published_date.
       page(params[:page]).
@@ -49,7 +49,7 @@ class Admin::BookReviewsController < Admin::AdminController
   end
 
   def find_authors
-    @authors = User.all
+    @authors = Exposition::User.all
   end
 
   def find_tags

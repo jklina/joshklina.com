@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: exposition_development
+  database: joshklina_development
 test:
   <<: *default
-  database: exposition_test
+  database: joshklina_test
 

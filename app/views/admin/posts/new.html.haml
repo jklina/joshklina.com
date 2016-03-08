@@ -1,7 +1,0 @@
-%section.new-post
-  .admin-title-header
-    %h2 New Post
-    = link_to "Back to Posts", admin_posts_path
-  = form_for @post, url: admin_posts_path, method: :post do |f|
-    = render partial: 'admin/shared/error_handler', locals: { model: @post }
-    = render partial: 'form_fields', locals: { form: f }

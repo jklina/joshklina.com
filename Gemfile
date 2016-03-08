@@ -3,7 +3,7 @@ ruby "2.2.2"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem "haml-rails", "~> 0.9"
@@ -19,6 +19,7 @@ gem 'kaminari', '~> 0.16'
 gem 'uglifier'
 gem 'categorical'
 gem 'human_urls'
+gem 'exposition'
 
 group :production do
   gem 'puma', '~> 2.11'

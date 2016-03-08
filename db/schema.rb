@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230034653) do
+ActiveRecord::Schema.define(version: 20160226214158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20151230034653) do
 
   add_index "categorical_tags", ["slug"], name: "index_categorical_tags_on_slug", unique: true, using: :btree
 
-  create_table "posts", force: :cascade do |t|
+  create_table "exposition_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at",                   null: false
@@ -58,11 +58,12 @@ ActiveRecord::Schema.define(version: 20151230034653) do
     t.date     "published_at"
     t.string   "slug"
     t.integer  "author_id"
+    t.text     "summary"
   end
 
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
+  add_index "exposition_posts", ["slug"], name: "index_exposition_posts_on_slug", unique: true, using: :btree
 
-  create_table "users", force: :cascade do |t|
+  create_table "exposition_users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",      null: false
@@ -71,6 +72,6 @@ ActiveRecord::Schema.define(version: 20151230034653) do
     t.string   "remember_digest"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "exposition_users", ["email"], name: "index_exposition_users_on_email", unique: true, using: :btree
 
 end

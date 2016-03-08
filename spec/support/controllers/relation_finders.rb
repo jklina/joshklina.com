@@ -10,7 +10,7 @@ module Controllers
 
     def finds_authors_for
       author = create(:user)
-      authors = User.all
+      authors = Exposition::User.all
 
       yield
 

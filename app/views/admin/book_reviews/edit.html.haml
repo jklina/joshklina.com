@@ -3,5 +3,5 @@
     %h2 Edit Book Review
     = link_to "Back to Posts", admin_book_reviews_path
   = form_for @book_review, url: admin_book_review_path, method: :patch do |f|
-    = render partial: 'admin/shared/error_handler', locals: { model: @book_review }
+    = render partial: 'exposition/admin/shared/error_handler', locals: { model: @book_review }
     = render partial: 'form_fields', locals: { form: f }
