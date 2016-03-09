@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'categorical'
 gem 'human_urls'
 gem 'exposition'
+gem 'rails_12factor'
 
 group :production do
   gem 'puma', '~> 2.11'
