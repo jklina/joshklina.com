@@ -28,6 +28,6 @@ module TagHelper
   end
 
   def draw_tag_url(tag:, taggable_type:)
-    link_to(tag.label, tag_path(tag, type: taggable_type))
+    link_to(tag.label, exposition.tag_path(tag, type: taggable_type))
   end
 end
