@@ -65,7 +65,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
-    exposition (0.0.5.pre.alpha)
+    exposition (0.0.5.1.pre.alpha)
       bcrypt (~> 3.1)
       bitters
       bourbon (~> 4.2)
@@ -170,7 +170,7 @@ GEM
       activesupport (= 4.2.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.5.0)
+    rake (11.0.1)
     redcarpet (3.3.4)
     rouge (1.8.0)
     rspec-core (3.4.3)
