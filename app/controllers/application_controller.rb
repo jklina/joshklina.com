@@ -4,5 +4,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'exposition/application'
   helper Exposition::Admin::FlashesHelper
-
 end

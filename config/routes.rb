@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :book_reviews
   end
-  #
-  # resources :tags, only: [:show]
+
   resources :book_reviews, only: [:index]
+
+  # Mapping high voltage to custom controller
+  get "/pages/*id" => 'pages#show', as: :page, format: false
 end
