@@ -242,7 +242,7 @@ DEPENDENCIES
   capybara
   categorical
   database_cleaner (~> 1.4)
-  exposition
+  exposition (= 0.0.5.4.pre.alpha)
   factory_girl_rails (~> 4.0)
   faker
   haml-rails (~> 0.9)
