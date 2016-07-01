@@ -37,7 +37,7 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
                                               author_id: user.id,
                                               body: 'Review')
 
-        post :create, book_review: valid_book_review_attributes
+        post :create, params: { book_review: valid_book_review_attributes }
 
         expect(assigns(:book_review)).to be_persisted
         expect(assigns(:book_review).book_title).to eq('Title')
@@ -49,7 +49,7 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
 
     context "with invalid attributes" do
       it "re-renders the new action" do
-        post :create, book_review: invalid_book_review_attributes
+        post :create, params: { book_review: invalid_book_review_attributes }
 
         expect(assigns(:book_review)).to be_a_new(BookReview)
         expect(assigns(:book_review).book_title).to eq('')
@@ -60,12 +60,12 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
 
     it do
       finds_authors_for do
-        post :create, book_review: invalid_book_review_attributes
+        post :create, params: { book_review: invalid_book_review_attributes }
       end
     end
     it do
       finds_tags_for do
-        post :create, book_review: invalid_book_review_attributes
+        post :create, params: { book_review: invalid_book_review_attributes }
       end
     end
   end
@@ -74,19 +74,19 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
     it "finds the book review" do
       review = create(:book_review)
 
-      get :edit, id: review
+      get :edit, params: { id: review }
 
       expect(assigns(:book_review)).to eq(review)
     end
 
-    it { finds_authors_for { get :edit, id: create(:book_review) } }
-    it { finds_tags_for { get :edit, id: create(:book_review) } }
+    it { finds_authors_for { get :edit, params: { id: create(:book_review) } } }
+    it { finds_tags_for { get :edit, params: { id: create(:book_review) } } }
   end
   describe "GET #update" do
     it "finds the book_review" do
       book_review = create(:book_review)
 
-      patch :update, id: book_review, book_review: {title: 'hello'}
+      patch :update, params: { id: book_review, book_review: {title: 'hello'} }
 
       expect(assigns(:book_review)).to eq(book_review)
     end
@@ -95,9 +95,11 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
       user = create(:user)
       book_review = create(:book_review)
 
-      patch :update, id: book_review, book_review: {book_title: "hello!",
-                                           body: "1,2,3,4",
-                                           author_id: user.id}
+      patch :update, params: { id: book_review,
+                              book_review: {book_title: "hello!",
+                                            body: "1,2,3,4",
+                                            author_id: user.id}
+      }
 
       book_review.reload
 
@@ -109,14 +111,17 @@ RSpec.describe Admin::BookReviewsController, type: :controller do
     it do
       finds_tags_for do
         book_review = create(:book_review)
-        patch :update, id: book_review, book_review: {book_title: 'hello'}
+        patch :update, params: { id: book_review,
+                                book_review: {book_title: 'hello'}
+        }
       end
     end
 
     it do
       finds_authors_for do
         book_review = create(:book_review)
-        patch :update, id: book_review, book_review: {book_title: 'hello'}
+        patch :update, params: { id: book_review,
+                                 book_review: {book_title: 'hello'} }
       end
     end
   end

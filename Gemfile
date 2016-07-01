@@ -3,7 +3,7 @@ ruby "2.2.2"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.0'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem "haml-rails", "~> 0.9"
@@ -18,7 +18,7 @@ gem 'rouge', '~> 1.8.0'
 gem 'kaminari', '~> 0.16'
 gem 'uglifier'
 gem 'categorical'
-gem 'human_urls'
+gem 'human_urls', '~> 0.1.5-alpha.0'
 gem 'exposition'
 
 group :production do
@@ -36,5 +36,6 @@ group :development, :test do
   gem "database_cleaner", "~> 1.4"
   gem "faker"
   gem "launchy"
+  gem 'rails-controller-testing'
 end
 

@@ -6,8 +6,6 @@ Bundler.require(*Rails.groups)
 
 module Exposition
   class Application < Rails::Application
-    config.active_record.raise_in_transactional_callbacks = true
-
     config.generators do |g|
       g.assets = false
       g.helper = false
