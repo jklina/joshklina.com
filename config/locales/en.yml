@@ -21,6 +21,8 @@
 
 en:
   title: 'joshklina.com'
+  page_description: 'joshklina.com'
+  site_subject: 'Thoughts on programming, generally.'
   owner: 'Josh Klina'
   date:
     formats:
