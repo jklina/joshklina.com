@@ -19,7 +19,9 @@ gem 'kaminari', '~> 0.16'
 gem 'uglifier'
 gem 'categorical'
 gem 'human_urls', '~> 0.1.5-alpha.0'
-gem 'exposition', '0.0.5.4-alpha'
+gem 'exposition', '0.0.5.5-alpha'
+# gem 'exposition', path: '../exposition'
+gem "autoprefixer-rails"
 
 group :production do
   gem 'puma', '~> 2.11'

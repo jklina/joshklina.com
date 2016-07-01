@@ -1,3 +1,22 @@
+PATH
+  remote: ../exposition
+  specs:
+    exposition (0.0.5.5.pre.alpha)
+      bcrypt (~> 3.1)
+      bitters
+      bourbon (~> 4.2)
+      categorical (~> 0.0.6.rc)
+      haml-rails (~> 0.9)
+      human_urls (~> 0.1.5.pre.alpha.0)
+      jquery-rails (~> 4.1)
+      kaminari
+      neat (~> 1.7.2)
+      pg
+      rails (~> 5.0.0)
+      redcarpet (~> 3.0)
+      rouge (~> 1.8.0)
+      uglifier
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,6 +59,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.0.0)
+    autoprefixer-rails (6.3.6.2)
+      execjs
     bcrypt (3.1.11)
     bitters (1.2.0)
       bourbon (>= 4.2)
@@ -67,21 +88,6 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
-    exposition (0.0.5.4.pre.alpha)
-      bcrypt (~> 3.1)
-      bitters
-      bourbon (~> 4.2)
-      categorical (~> 0.0.6.rc)
-      haml-rails (~> 0.9)
-      human_urls (~> 0.1.4.pre.alpha.0)
-      jquery-rails (~> 4.1)
-      kaminari
-      neat (~> 1.7.2)
-      pg
-      rails (~> 5.0.0)
-      redcarpet (~> 3.0)
-      rouge (~> 1.8.0)
-      uglifier
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
@@ -235,6 +241,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt (~> 3.1)
   bitters
   bourbon (~> 4.2)
@@ -242,7 +249,7 @@ DEPENDENCIES
   capybara
   categorical
   database_cleaner (~> 1.4)
-  exposition (= 0.0.5.4.pre.alpha)
+  exposition!
   factory_girl_rails (~> 4.0)
   faker
   haml-rails (~> 0.9)

@@ -2,7 +2,8 @@
   @include outer-container;
 
   figure {
-    margin-left: 0;
+    @include base-padding;
+    margin: 0;
   }
 
   @include media($large-screen-up) {

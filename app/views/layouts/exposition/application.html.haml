@@ -10,7 +10,7 @@
     %meta{name: "generator", content: "Exposition"}
     %meta{name: "subject", content: t('site_subject')}
     %base{href: request.base_url}
-    = stylesheet_link_tag "exposition/application"
+    = stylesheet_link_tag "application"
     = csrf_meta_tags
   %body
     %header
@@ -23,6 +23,6 @@
           %li= link_to 'Tools', main_app.page_path('tools')
     = yield
 
-  %footer
-    .info
-      %p= "By #{t('owner')}"
+    %footer
+      .info
+        %p= "By #{t('owner')}"
