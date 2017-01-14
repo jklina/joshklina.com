@@ -1,0 +1,14 @@
+%section.tools
+  %h2 Tools
+  %p A list of software and hardware that helps me get my work done. I'll try to post or update this list once a week. 
+%section.tools
+  %h2 Tools
+  %p A list of software and hardware that helps me get my work done. I'll try to post or update this list once a week. 
+
+  - unless @tools.empty?
+    = render @tools
+  -else
+    %section.no-tools
+      %p= t('tools.index.no_tools_warning')
+
+  = paginate @tools

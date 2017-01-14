@@ -39,6 +39,9 @@ en:
   book_reviews:
     index:
       no_reviews_warning: 'There are no book reviews yet. Please check back later!'
+  tools:
+    index:
+      no_tools_warning: 'There are no tools yet. Please check back later!'
   sessions:
     submit: 'Log in'
     failed_login: 'Invalid user/password combination.'

@@ -1,0 +1,21 @@
+%section.tools
+  .admin-title-header
+    %h2 Tools
+    = link_to "Add New", new_admin_tool_path
+  %table 
+    %thead
+      %tr
+        %th Title
+        %th Article
+        %th Slug
+        %th Tags
+        %th Manage
+    %tbody
+      - @tools.each do |tool|
+        %tr.tool{class: "#{tool.css_classes}"}
+          %td= "#{tool.title}"
+          %td= truncate(tool.body, length: 40, separator: ' ')
+          %td= "#{tool.slug}"
+          %td= "#{tool.tags.to_a.to_sentence}"
+          %td= link_to "Edit", edit_admin_tool_path(tool)
+  = paginate @tools

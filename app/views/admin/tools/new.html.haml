@@ -1,0 +1,7 @@
+%section.new-tool
+  .admin-title-header
+    %h2 New Tool
+    = link_to "Back to Tools", admin_tools_path
+  = form_for @tool, url: admin_tools_path, method: :post do |f|
+    = render partial: 'exposition/admin/shared/error_handler', locals: { model: @tool }
+    = render partial: 'form_fields', locals: { form: f }

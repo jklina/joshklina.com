@@ -12,6 +12,7 @@
         %li= link_to "Posts", exposition.admin_posts_path
         %li= link_to "Tags", exposition.admin_tags_path
         %li= link_to "Book Reviews", main_app.admin_book_reviews_path
+        %li= link_to "Book Reviews", main_app.admin_tools_path
       - if logged_in?
         %ul.login
           %li= link_to current_user.name, exposition.admin_posts_path

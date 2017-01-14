@@ -1,0 +1,20 @@
+%p
+  = form.label :title
+  = form.text_field :title
+%p
+  = form.label :url
+  = form.text_field :url
+%p
+  = form.label :body
+  = form.text_area :body
+%p
+  = form.label :slug
+  = form.text_field :slug
+%p
+  = form.label :tag_ids, 'Tags'
+  = form.collection_check_boxes(:tag_ids, @tags, :id, :label) do |b|
+    = b.label { b.check_box + b.text }
+%p
+  = form.label :published
+  = form.check_box :published
+%p= form.submit
