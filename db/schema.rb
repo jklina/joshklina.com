@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226214158) do
+ActiveRecord::Schema.define(version: 20170114212537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,26 +27,23 @@ ActiveRecord::Schema.define(version: 20160226214158) do
     t.date     "published_at"
     t.boolean  "published",    default: false, null: false
     t.integer  "author_id"
+    t.index ["slug"], name: "index_book_reviews_on_slug", unique: true, using: :btree
   end
-
-  add_index "book_reviews", ["slug"], name: "index_book_reviews_on_slug", unique: true, using: :btree
 
   create_table "categorical_taggings", force: :cascade do |t|
     t.integer "taggable_id"
     t.string  "taggable_type"
     t.integer "tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_categorical_taggings_on_taggable_type_and_taggable_id", using: :btree
   end
-
-  add_index "categorical_taggings", ["taggable_type", "taggable_id"], name: "index_categorical_taggings_on_taggable_type_and_taggable_id", using: :btree
 
   create_table "categorical_tags", force: :cascade do |t|
     t.string   "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.index ["slug"], name: "index_categorical_tags_on_slug", unique: true, using: :btree
   end
-
-  add_index "categorical_tags", ["slug"], name: "index_categorical_tags_on_slug", unique: true, using: :btree
 
   create_table "exposition_posts", force: :cascade do |t|
     t.string   "title"
@@ -59,9 +55,8 @@ ActiveRecord::Schema.define(version: 20160226214158) do
     t.string   "slug"
     t.integer  "author_id"
     t.text     "summary"
+    t.index ["slug"], name: "index_exposition_posts_on_slug", unique: true, using: :btree
   end
-
-  add_index "exposition_posts", ["slug"], name: "index_exposition_posts_on_slug", unique: true, using: :btree
 
   create_table "exposition_users", force: :cascade do |t|
     t.string   "name"
@@ -70,8 +65,20 @@ ActiveRecord::Schema.define(version: 20160226214158) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.index ["email"], name: "index_exposition_users_on_email", unique: true, using: :btree
   end
 
-  add_index "exposition_users", ["email"], name: "index_exposition_users_on_email", unique: true, using: :btree
+  create_table "tools", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "body"
+    t.string   "slug"
+    t.integer  "author_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.date     "published_at"
+    t.boolean  "published",    default: false, null: false
+    t.index ["slug"], name: "index_tools_on_slug", unique: true, using: :btree
+  end
 
 end
