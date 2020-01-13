@@ -16,7 +16,7 @@ gem 'kaminari', '~> 0.16'
 gem 'uglifier'
 gem 'categorical'
 gem 'human_urls'
-gem 'exposition', path: "/Users/joshuaklina/Development/exposition"
+gem 'exposition', '0.0.5.7-alpha'
 gem "autoprefixer-rails"
 
 group :production do
