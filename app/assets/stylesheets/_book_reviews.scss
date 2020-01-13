@@ -1,20 +1,37 @@
-.book-review {
-  @include outer-container;
+.book-reviews {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.0em;
+  display: grid;
+  // section { padding: 22px; }
 
-  figure {
-    @include base-padding;
-    margin: 0;
-  }
+  article.tool {
+    padding: 60px 22px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
 
-  @include media($large-screen-up) {
-    figure {
-      @include span-columns(2);
-      margin: modular-scale(1) 0 0 0;
+    h2 {
+      margin-top: 6px;
+      flex-shrink: 0;
+      font-family: $serif-font;
+      margin-right: 40px;
+      border-bottom: 5px double #444;
     }
 
-    section.review {
-      @include span-columns(10);
+    .body {
+      flex-grow: 1;
+    }
+
+    p a {
+      display: inline-block;
+      background-color: #bf7110;
+      padding: 10px;
+      font-family: 'Pixel';
+      font-size: 19px;
+      color: white;
+      margin-bottom: 23px;
     }
   }
 }
-

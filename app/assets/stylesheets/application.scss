@@ -1,4 +1,128 @@
-@import 'exposition/application';
+@font-face {
+  font-family: 'Pixel';
+  src: url('PixelOperatorMono.ttf');
+}
+@import url('https://fonts.googleapis.com/css?family=Baskervville|Poppins&display=swap');
+
+$sans-serif-font: 'Poppins', sans-serif;
+$serif-font: 'Baskervville', serif;
+$pixel-font: normal 20px "Pixel", sans-serif;
+
 @import 'pages';
+@import 'posts';
 @import 'book_reviews';
 @import 'tools';
+
+
+body {
+  background-color: #c6e7ff;
+  font-family: $sans-serif-font;
+}
+
+h2 {
+  margin-top: 0;
+  font-family: $serif-font;
+  font-size: 48px;
+}
+
+header {
+  nav {
+    font: $pixel-font;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    padding: 1.2em;
+  }
+
+  h1 a {
+    float: left;
+    background-color: #444;
+    font: normal 20px "Pixel", sans-serif;
+    padding: 22px;
+    color: #F1F1F1;
+    display: inline-block;
+    margin-left: 22px;
+  }
+
+  h1 {
+    display: inline-block;
+  }
+
+
+  ul { float: right; }
+  .menu li {
+    display: inline;
+    list-style: none;
+    text-align: left;
+    margin-right: 2px;
+    display: inline-block;
+  }
+
+  ul.social {
+    list-style: none;
+
+    img.twitter {
+      height: 66px;
+    }
+  }
+
+  .menu li a {
+    display: inline-block;
+    background-color: #444;
+    color: #F1F1F1;
+    padding: 22px;
+
+    &:hover {
+      background-color: #bf7110;
+    }
+  }
+}
+
+.main-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.0em;
+  display: grid;
+  .content {
+    padding: 22px;
+  }
+}
+
+.tags {
+  span {
+    display: inline-block;
+    padding: 12px 18px;
+    background-color: #444;
+    margin-right: 22px;
+    font: $pixel-font;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    color: #F1F1F1;
+
+    &:hover {
+      background-color: #bf7110;
+    }
+
+    a {
+      color: #F1F1F1;
+    }
+  }
+}
+
+footer .info {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  padding: 1.2em;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+}
+

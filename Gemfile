@@ -1,25 +1,22 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+ruby "2.7.0"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0'
+gem 'rails', '6.0'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
-gem "haml-rails", "~> 0.9"
-gem 'bourbon', "~> 4.2"
-gem 'neat', "~> 1.7.2"
-gem 'bitters'
+gem "haml-rails"
 gem 'pg'
 gem 'bcrypt', '~> 3.1'
-gem 'high_voltage', '~> 3.0.0'
+gem 'high_voltage'
 gem 'redcarpet', '~> 3.0'
-gem 'rouge', '~> 1.8.0'
+gem 'rouge'
 gem 'kaminari', '~> 0.16'
 gem 'uglifier'
 gem 'categorical'
-gem 'human_urls', '~> 0.1.5-alpha.0'
-gem 'exposition', '~> 0.0.5.5-alpha'
+gem 'human_urls'
+gem 'exposition', path: "/Users/joshuaklina/Development/exposition"
 gem "autoprefixer-rails"
 
 group :production do
@@ -32,7 +29,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'rspec-rails', '~> 3.0'
-  gem 'shoulda-matchers', '~> 2.8'
+  gem 'shoulda-matchers'
   gem "factory_girl_rails", "~> 4.0"
   gem "database_cleaner", "~> 1.4"
   gem "faker"

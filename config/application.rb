@@ -11,5 +11,6 @@ module Exposition
       g.helper = false
       g.view_specs = false
     end
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end

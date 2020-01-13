@@ -1,0 +1,40 @@
+.posts {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.0em;
+}
+
+.posts {
+  display: grid;
+}
+
+article {
+  // background-color: #444;
+  // color: #F1F1F1;
+  padding: 60px 22px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Poppins', sans-serif;
+
+  time {
+    margin-top: 6px;
+    flex-shrink: 0;
+    font-family: 'Baskervville', serif;
+    margin-right: 40px;
+    border-bottom: 5px double #444;
+    padding-top: 22px;
+  }
+
+  .content {
+    flex-grow: 1;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-family: 'Baskervville', serif;
+    font-size: 48px;
+  }
+}
+
