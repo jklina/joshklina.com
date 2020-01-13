@@ -20,7 +20,7 @@ gem 'exposition', '0.0.5.7-alpha'
 gem "autoprefixer-rails"
 
 group :production do
-  gem 'puma', '~> 2.11'
+  gem 'puma', '~> 3.12'
   gem 'rails_12factor'
 end
 

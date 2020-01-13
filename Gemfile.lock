@@ -155,7 +155,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.3)
-    puma (2.16.0)
+    puma (3.12.2)
     rack (2.1.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -277,7 +277,7 @@ DEPENDENCIES
   launchy
   pg
   pry-rails
-  puma (~> 2.11)
+  puma (~> 3.12)
   rails (= 6.0)
   rails-controller-testing
   rails_12factor
