@@ -10,7 +10,7 @@ gem "haml-rails"
 gem 'pg'
 gem 'bcrypt', '~> 3.1'
 gem 'high_voltage'
-gem 'redcarpet', '~> 3.0'
+gem 'redcarpet', '~> 3.5'
 gem 'rouge'
 gem 'kaminari', '~> 0.16'
 gem 'uglifier'
